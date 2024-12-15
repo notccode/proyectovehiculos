@@ -1,0 +1,23 @@
+{% extends 'index.html' %}
+
+{% block title %}Detalles del Vehículo{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Detalles del Vehículo</h2>
+
+    <div class="border p-4 shadow rounded bg-light">
+        <p><strong>Marca:</strong> {{ vehiculo.marca }}</p>
+        <p><strong>Modelo:</strong> {{ vehiculo.modelo }}</p>
+        <p><strong>Serial de Carrocería:</strong> {{ vehiculo.serial_carroceria }}</p>
+        <p><strong>Serial de Motor:</strong> {{ vehiculo.serial_motor }}</p>
+        <p><strong>Categoría:</strong> {{ vehiculo.categoria }}</p>
+        <p><strong>Precio:</strong> ${{ vehiculo.precio }}</p>
+        <p><strong>Fecha de Creación:</strong> {{ vehiculo.fecha_creacion }}</p>
+        <p><strong>Fecha de Modificación:</strong> {{ vehiculo.fecha_modificacion }}</p>
+
+        <a href="{% url 'add_vehiculo' %}" class="btn btn-dark mt-4">Agregar Otro Vehículo</a>
+        <a href="{% url 'index' %}" class="btn btn-dark mt-4 ms-2">Ir a Inicio</a>
+    </div>
+</div>
+{% endblock %}

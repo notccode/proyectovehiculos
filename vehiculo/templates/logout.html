@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+
+{% block title %}Logout Exitoso{% endblock %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+    <div class="alert alert-success" role="alert">
+        <h4 class="alert-heading">¡Sesión Cerrada!</h4>
+        <p>Has cerrado sesión exitosamente!</p>
+        <hr>
+        <p class="mb-0">Puedes <a href="/login_user">iniciar sesión</a> nuevamente si lo deseas.</p>
+    </div>
+</div>
+{% endblock %}

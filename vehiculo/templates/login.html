@@ -1,0 +1,51 @@
+{% extends 'index.html' %}
+
+{% block title %}Iniciar Sesión{% endblock title %}
+
+{% block content %}
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header text-center">
+                <h4>Iniciar Sesión</h4>
+            </div>
+            <div class="card-body">
+                {% if messages %}
+                    <div id="message-container">
+                        {% for message in messages %}
+                            <div class="alert alert-info">{{ message }}</div>
+                        {% endfor %}
+                    </div>
+                    <script>
+                        setTimeout(function() {
+                            document.getElementById('message-container').remove();
+                        }, 2000);
+                    </script>
+                {% endif %}
+
+                {% if form.errors %}
+                    <div class="alert alert-danger">
+                        Nombre de usuario o contraseña incorrectos.
+                    </div>
+                {% endif %}
+
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="username" class="form-label">Nombre de Usuario</label>
+                        <input type="text" name="username" id="username" class="form-control" required aria-label="Nombre de Usuario">
+                    </div>
+                    <div class="mb-3">
+                        <label for="password" class="form-label">Contraseña</label>
+                        <input type="password" name="password" id="password" class="form-control" required aria-label="Contraseña">
+                    </div>
+                    <button type="submit" class="btn btn-dark w-100">Iniciar Sesión</button>
+                </form>
+            </div>
+        </div>
+        <div class="text-center mt-3">
+            <p>¿No tienes cuenta? <a href="/registrar_usuario">Regístrate aquí</a></p>
+        </div>
+    </div>
+</div>
+{% endblock content %}

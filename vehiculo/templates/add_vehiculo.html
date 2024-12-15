@@ -1,0 +1,55 @@
+{% extends 'index.html' %}
+
+{% block title %}Agregar Vehículo{% endblock title %}
+
+{% block content %}
+<div class="container">
+    <h2 class="mb-4">Agregar Vehículo</h2>
+    <form method="post" class="border p-4 shadow rounded bg-light">
+        {% csrf_token %}
+        
+        <div class="mb-3">
+            <label for="marca" class="form-label">Marca</label>
+            <select class="form-select" id="marca" name="marca" aria-label="Marca">
+                <option selected="Ford">Ford</option>
+                <option value="Fiat">Fiat</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Toyota">Toyota</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="modelo" class="form-label">Modelo</label>
+            <input type="text" class="form-control" id="modelo" name="modelo" placeholder="Ingrese el modelo">
+        </div>
+
+        <div class="mb-3">
+            <label for="serial_carroceria" class="form-label">Serial de Carrocería</label>
+            <input type="text" class="form-control" id="serial_carroceria" name="serial_carroceria" placeholder="Ingrese el serial de carrocería">
+        </div>
+
+        <div class="mb-3">
+            <label for="serial_motor" class="form-label">Serial de Motor</label>
+            <input type="text" class="form-control" id="serial_motor" name="serial_motor" placeholder="Ingrese el serial de motor">
+        </div>
+
+        <div class="mb-3">
+            <label for="categoria" class="form-label">Categoría</label>
+            <select class="form-select" id="categoria" name="categoria" aria-label="Seleccione categoría">
+                <option selected>Seleccione una categoría</option>
+                <option value="Particular">Particular</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Carga">Carga</option>
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="precio" class="form-label">Precio</label>
+            <input type="number" class="form-control" id="precio" name="precio" placeholder="Ingrese el precio">
+        </div>
+
+        <!-- Botón de Enviar -->
+        <button type="submit" class="btn btn-dark w-100">Guardar Vehículo</button>
+    </form>
+</div>
+{% endblock content %}
